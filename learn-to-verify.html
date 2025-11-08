@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn to Verify - FactChecker AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="learn-to-verify-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">FactChecker AI</a>
+            </h1>
+            <div class="header-icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="veritas-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-search"></i>
+                        <span>Veritas Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ShieldMate</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="learn-to-verify.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn to Verify</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="voice-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice Note Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports & Authority Hub</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-user"></i>
+                        <span>Profile & Leaderboard</span>
+                    </a>
+                </li> -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content learn-main">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Learn to Verify</h1>
+                    <p class="hero-subtitle">Master the Art of Spotting Misinformation</p>
+                    <p class="hero-description">
+                        Build long-term resilience against misinformation through interactive lessons, 
+                        gamified quizzes, and real-world simulation exercises.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="total-lessons">12</div>
+                            <div class="stat-label">Lessons</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="completed-lessons">0</div>
+                            <div class="stat-label">Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="user-score">0</div>
+                            <div class="stat-label">Score</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="learning-preview">
+                        <div class="preview-card">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <span class="preview-title">Lesson Progress</span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="progress-ring">
+                                    <svg class="progress-ring-svg" width="120" height="120">
+                                        <circle class="progress-ring-circle" cx="60" cy="60" r="50" fill="transparent" stroke="#e0e0e0" stroke-width="8"/>
+                                        <circle class="progress-ring-circle progress-ring-fill" cx="60" cy="60" r="50" fill="transparent" stroke="#4CAF50" stroke-width="8" stroke-dasharray="314" stroke-dashoffset="157"/>
+                                    </svg>
+                                    <div class="progress-text">50%</div>
+                                </div>
+                                <div class="preview-lessons">
+                                    <div class="lesson-item completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Fake Images</span>
+                                    </div>
+                                    <div class="lesson-item completed">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Source Bias</span>
+                                    </div>
+                                    <div class="lesson-item current">
+                                        <i class="fas fa-play-circle"></i>
+                                        <span>Financial Scams</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Modes -->
+            <section class="learning-modes">
+                <div class="section-header">
+                    <h2>Choose Your Learning Path</h2>
+                    <p>Select how you want to build your fact-checking skills</p>
+                </div>
+
+                <div class="modes-grid">
+                    <!-- Content Library -->
+                    <div class="mode-card" onclick="showContentLibrary()">
+                        <div class="mode-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Content Library</h3>
+                        <p>Interactive lessons covering essential misinformation detection techniques</p>
+                        <div class="mode-stats">
+                            <span><i class="fas fa-book"></i> 12 Lessons</span>
+                            <span><i class="fas fa-clock"></i> 5-10 min each</span>
+                        </div>
+                        <div class="mode-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%"></div>
+                            </div>
+                            <span>3/12 Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Quizzes -->
+                    <div class="mode-card" onclick="showQuizMode()">
+                        <div class="mode-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Interactive Quizzes</h3>
+                        <p>Test your knowledge with dynamic, AI-generated questions</p>
+                        <div class="mode-stats">
+                            <span><i class="fas fa-brain"></i> Adaptive</span>
+                            <span><i class="fas fa-trophy"></i> Scoring</span>
+                        </div>
+                        <div class="mode-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span>Best: 85%</span>
+                        </div>
+                    </div>
+
+                    <!-- Simulation Mode -->
+                    <div class="mode-card featured" onclick="showSimulationMode()">
+                        <div class="mode-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Simulation Mode</h3>
+                        <p>Practice with AI-generated misinformation examples in real-world scenarios</p>
+                        <div class="mode-stats">
+                            <span><i class="fas fa-robot"></i> AI Generated</span>
+                            <span><i class="fas fa-target"></i> Real Scenarios</span>
+                        </div>
+                        <div class="mode-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                            <span>Level 3</span>
+                        </div>
+                        <div class="featured-badge">Most Popular</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Library Modal -->
+            <div class="mode-modal" id="content-library-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Content Library</h2>
+                        <p>Master the fundamentals of misinformation detection</p>
+                        <button class="close-btn" onclick="hideContentLibrary()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="lessons-grid" id="lessons-grid">
+                            <!-- Lessons will be dynamically generated -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Mode Modal -->
+            <div class="mode-modal" id="quiz-mode-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Interactive Quiz</h2>
+                        <p>Test your knowledge with adaptive questions</p>
+                        <button class="close-btn" onclick="hideQuizMode()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="quiz-container" id="quiz-container">
+                            <div class="quiz-selection">
+                                <h3>Choose Quiz Type</h3>
+                                <div class="quiz-options">
+                                    <button class="quiz-option" onclick="startQuiz('general')">
+                                        <i class="fas fa-globe"></i>
+                                        <h4>General Knowledge</h4>
+                                        <p>Mixed topics from all lessons</p>
+                                    </button>
+                                    <button class="quiz-option" onclick="startQuiz('images')">
+                                        <i class="fas fa-image"></i>
+                                        <h4>Fake Images</h4>
+                                        <p>Visual misinformation detection</p>
+                                    </button>
+                                    <button class="quiz-option" onclick="startQuiz('bias')">
+                                        <i class="fas fa-balance-scale"></i>
+                                        <h4>Source Bias</h4>
+                                        <p>Identifying biased sources</p>
+                                    </button>
+                                    <button class="quiz-option" onclick="startQuiz('scams')">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h4>Financial Scams</h4>
+                                        <p>Recognizing financial fraud</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulation Mode Modal -->
+            <div class="mode-modal" id="simulation-mode-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Simulation Mode</h2>
+                        <p>Practice with AI-generated misinformation examples</p>
+                        <button class="close-btn" onclick="hideSimulationMode()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="simulation-container" id="simulation-container">
+                            <div class="simulation-setup">
+                                <h3>Choose Simulation Theme</h3>
+                                <div class="theme-selector">
+                                    <button class="theme-btn active" onclick="selectTheme('health')">
+                                        <i class="fas fa-heartbeat"></i>
+                                        <span>Health</span>
+                                    </button>
+                                    <button class="theme-btn" onclick="selectTheme('politics')">
+                                        <i class="fas fa-vote-yea"></i>
+                                        <span>Politics</span>
+                                    </button>
+                                    <button class="theme-btn" onclick="selectTheme('finance')">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Finance</span>
+                                    </button>
+                                    <button class="theme-btn" onclick="selectTheme('technology')">
+                                        <i class="fas fa-microchip"></i>
+                                        <span>Technology</span>
+                                    </button>
+                                </div>
+                                <div class="difficulty-selector">
+                                    <h4>Difficulty Level</h4>
+                                    <div class="difficulty-options">
+                                        <button class="difficulty-btn active" onclick="selectDifficulty('beginner')">Beginner</button>
+                                        <button class="difficulty-btn" onclick="selectDifficulty('intermediate')">Intermediate</button>
+                                        <button class="difficulty-btn" onclick="selectDifficulty('advanced')">Advanced</button>
+                                    </div>
+                                </div>
+                                <button class="start-simulation-btn" onclick="startSimulation()">
+                                    <i class="fas fa-play"></i>
+                                    Start Simulation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson Content Modal -->
+            <div class="mode-modal" id="lesson-content-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Lesson Content</h2>
+                        <p>Interactive learning experience</p>
+                        <button class="close-btn" onclick="hideLessonContent()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="lesson-header">
+                            <div class="lesson-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="lesson-progress-fill"></div>
+                                </div>
+                                <span id="lesson-progress-text">1/5</span>
+                            </div>
+                        </div>
+                        <div class="lesson-body" id="lesson-body">
+                            <!-- Lesson content will be dynamically generated -->
+                        </div>
+                        <div class="lesson-actions">
+                            <button class="btn-secondary" onclick="previousLesson()" id="prev-btn" disabled>
+                                <i class="fas fa-chevron-left"></i>
+                                Previous
+                            </button>
+                            <button class="btn-primary" onclick="nextLesson()" id="next-btn">
+                                Next
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Content Modal -->
+            <div class="mode-modal" id="quiz-content-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Interactive Quiz</h2>
+                        <p>Test your knowledge</p>
+                        <button class="close-btn" onclick="hideQuizContent()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="quiz-header">
+                            <div class="quiz-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="quiz-progress-fill"></div>
+                                </div>
+                                <span id="quiz-progress-text">1/10</span>
+                            </div>
+                            <div class="quiz-score">
+                                <span>Score: <span id="current-score">0</span></span>
+                            </div>
+                        </div>
+                        <div class="quiz-body" id="quiz-body">
+                            <!-- Quiz content will be dynamically generated -->
+                        </div>
+                        <div class="quiz-actions">
+                            <button class="btn-primary" onclick="submitQuizAnswer()" id="submit-btn" disabled>
+                                Submit Answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulation Content Modal -->
+            <div class="mode-modal" id="simulation-content-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Simulation Mode</h2>
+                        <p>Practice with AI-generated examples</p>
+                        <button class="close-btn" onclick="hideSimulationContent()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="simulation-header">
+                            <div class="simulation-info">
+                                <span class="theme-badge" id="current-theme">Health</span>
+                                <span class="difficulty-badge" id="current-difficulty">Beginner</span>
+                                <span class="score-display">Score: <span id="simulation-score">0</span></span>
+                            </div>
+                        </div>
+                        <div class="simulation-body" id="simulation-body">
+                            <!-- Simulation content will be dynamically generated -->
+                        </div>
+                        <div class="simulation-actions">
+                            <button class="btn-primary" onclick="submitSimulationAnalysis()" id="simulation-submit-btn">
+                                Submit Analysis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Modal -->
+            <div class="results-modal" id="results-modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="results-title">Quiz Results</h3>
+                        <button class="close-btn" onclick="closeResultsModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="results-content" id="results-content">
+                            <!-- Results will be displayed here -->
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-secondary" onclick="closeResultsModal()">Close</button>
+                        <button class="btn-primary" onclick="retryActivity()">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="config.js"></script>
+    <script src="gemini-api.js"></script>
+    <script src="learn-to-verify.js"></script>
+</body>
+</html>
