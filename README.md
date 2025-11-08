@@ -389,7 +389,7 @@ Built with ❤️ by Asad Ali for the hackathon
 ✅ **Innovation**: Unique combination of analysis, reporting, and education  
 ✅ **Completeness**: Fully functional with deployment-ready code  
 
-**Live Demo**:  https://fact-checker-gules.vercel.app/
+**Live Demo**:  https://fact-checker-gules.vercel.app/  (open in icognito window)
 
 ---
 
@@ -400,3 +400,4 @@ Built with ❤️ by Asad Ali for the hackathon
 [⭐ Star us on GitHub](https://github.com/yourusername/factchecker-ai) | [🐛 Report Bug](https://github.com/yourusername/factchecker-ai/issues) | [💡 Request Feature](https://github.com/yourusername/factchecker-ai/issues)
 
 </div>
+
