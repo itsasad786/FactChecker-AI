@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Authority Hub - FactChecker AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reports-hub-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">FactChecker AI</a>
+            </h1>
+            <div class="header-icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="veritas-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-search"></i>
+                        <span>Veritas Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>ShieldMate</span>
+                </li>
+                <li class="nav-item">
+                    <a href="learn-to-verify.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn to Verify</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="voice-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice Note Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports & Authority Hub</span>
+                </li>
+                <!-- <li class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile & Leaderboard</span>
+                </li> -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content reports-main">
+            <!-- Hero Section -->
+            <div class="reports-hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Reports & Authority Hub
+                    </h1>
+                    <p class="hero-subtitle">Track and manage all your submitted reports to Indian authorities</p>
+                </div>
+            </div>
+
+            <!-- Statistics Dashboard -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon total">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="total-reports">0</div>
+                            <div class="stat-label">Total Reports</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon high">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="high-threat-reports">0</div>
+                            <div class="stat-label">High Threat Reports</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon categories">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="categories-count">0</div>
+                            <div class="stat-label">Categories Reported</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon recent">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <div class="stat-value" id="recent-reports">0</div>
+                            <div class="stat-label">Reports This Month</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Filters and Search -->
+            <section class="filters-section">
+                <div class="filters-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search reports by ID, authority, or content...">
+                    </div>
+                    <div class="filter-group">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">All Categories</option>
+                            <option value="cyber">Cyber Crime</option>
+                            <option value="financial">Financial Scam</option>
+                            <option value="election">Election Misinformation</option>
+                            <option value="health">Health Misinformation</option>
+                            <option value="general">General Fake News</option>
+                        </select>
+                        <select id="threat-filter" class="filter-select">
+                            <option value="all">All Threat Levels</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="threat-high">Highest Threat First</option>
+                        </select>
+                        <button class="btn-secondary" onclick="clearFilters()">
+                            <i class="fas fa-times"></i>
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports List -->
+            <section class="reports-section">
+                <div class="section-header">
+                    <h2>Your Submitted Reports</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary" onclick="exportAllReports()">
+                            <i class="fas fa-download"></i>
+                            Export All
+                        </button>
+                        <button class="btn-secondary" onclick="refreshReports()">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <div id="reports-list" class="reports-list">
+                    <!-- Reports will be dynamically loaded here -->
+                    <div class="empty-state" id="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-inbox"></i>
+                        </div>
+                        <h3>No Reports Yet</h3>
+                        <p>You haven't submitted any reports yet. Start analyzing content and report threats to authorities.</p>
+                        <a href="veritas-analyzer.html" class="btn-primary">
+                            <i class="fas fa-search"></i>
+                            Go to Veritas Analyzer
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Report Detail Modal -->
+    <div id="report-detail-modal" class="modal" style="display: none;">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Report Details</h3>
+                <button class="close-btn" onclick="closeReportDetailModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="report-detail-content">
+                <!-- Report details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="exportReport()">
+                    <i class="fas fa-download"></i>
+                    Export Report
+                </button>
+                <button class="btn-primary" onclick="closeReportDetailModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="reports-hub.js"></script>
+</body>
+</html>
+

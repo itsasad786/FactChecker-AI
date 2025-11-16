@@ -1,0 +1,23 @@
+{
+  "name": "factchecker-ai",
+  "version": "1.0.0",
+  "description": "A comprehensive web platform for fact-checking and digital media literacy",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "fact-checking",
+    "misinformation",
+    "ai",
+    "veritas",
+    "credibility"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
+

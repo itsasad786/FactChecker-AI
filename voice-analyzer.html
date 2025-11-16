@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Note Analyzer - FactChecker AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="veritas-styles.css">
+    <link rel="stylesheet" href="voice-analyzer-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">FactChecker AI</a>
+            </h1>
+            <div class="header-icons">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="veritas-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-search"></i>
+                        <span>Veritas Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>ShieldMate</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="learn-to-verify.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Learn to Verify</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="voice-analyzer.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-microphone"></i>
+                        <span>Voice Note Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports & Authority Hub</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a href="#" style="text-decoration: none; color: inherit; display: flex; align-items: center; width: 100%;">
+                        <i class="fas fa-user"></i>
+                        <span>Profile & Leaderboard</span>
+                    </a>
+                </li> -->
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content voice-main">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Voice Note Analyzer</h1>
+                    <p class="hero-subtitle">AI-Powered Voice Content Analysis</p>
+                    <p class="hero-description">
+                        Record voice notes, analyze speech patterns, detect emotional manipulation, 
+                        and verify credibility of spoken content using advanced AI technology.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToRecorder()">
+                            <i class="fas fa-microphone"></i>
+                            Start Recording
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToHistory()">
+                            <i class="fas fa-history"></i>
+                            View History
+                        </button>
+                        <button class="btn-secondary" onclick="testVoiceAPI()" style="background: #28a745; border-color: #28a745; color: white;">
+                            <i class="fas fa-plug"></i>
+                            Test API
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="voice-preview">
+                        <div class="preview-card">
+                            <div class="preview-header">
+                                <div class="preview-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <span class="preview-title">Voice Analysis</span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="voice-waveform">
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                </div>
+                                <div class="preview-analysis">
+                                    <div class="analysis-badge high">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>High Credibility</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voice Recorder Section -->
+            <section class="recorder-section" id="recorder">
+                <div class="section-header">
+                    <h2>Voice Recording & Analysis</h2>
+                    <p>Record your voice note and get instant AI-powered analysis</p>
+                </div>
+
+                <div class="recorder-interface">
+                    <div class="recorder-container">
+                        <!-- Recording Controls -->
+                        <div class="recording-controls">
+                            <button id="record-btn" class="record-btn" onclick="toggleRecording()">
+                                <i class="fas fa-microphone"></i>
+                                <span>Start Recording</span>
+                            </button>
+                            
+                            <button id="stop-btn" class="stop-btn" onclick="stopRecording()" disabled>
+                                <i class="fas fa-stop"></i>
+                                <span>Stop Recording</span>
+                            </button>
+                            
+                            <button id="play-btn" class="play-btn" onclick="playRecording()" disabled>
+                                <i class="fas fa-play"></i>
+                                <span>Play Recording</span>
+                            </button>
+                            
+                            <button id="analyze-btn" class="analyze-btn" onclick="analyzeVoice()" disabled>
+                                <i class="fas fa-search"></i>
+                                <span>Analyze Voice</span>
+                            </button>
+                        </div>
+
+                        <!-- Upload Section -->
+                        <div class="upload-section">
+                            <div class="upload-divider">
+                                <span>OR</span>
+                            </div>
+                            
+                            <div class="upload-container" id="upload-container">
+                                <div class="upload-area" id="upload-area">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <div class="upload-text">
+                                        <h3>Upload Voice File</h3>
+                                        <p>Drag and drop your audio file here or click to browse</p>
+                                        <p class="upload-formats">Supports: MP3, WAV, OGG, M4A, AAC</p>
+                                    </div>
+                                    <input type="file" id="audio-file-input" accept="audio/*" style="display: none;">
+                                    <button class="upload-btn" onclick="document.getElementById('audio-file-input').click()">
+                                        <i class="fas fa-folder-open"></i>
+                                        Choose File
+                                    </button>
+                                </div>
+                                
+                                <div class="uploaded-file-info" id="uploaded-file-info" style="display: none;">
+                                    <div class="file-details">
+                                        <div class="file-icon">
+                                            <i class="fas fa-file-audio"></i>
+                                        </div>
+                                        <div class="file-info">
+                                            <h4 id="uploaded-file-name">File Name</h4>
+                                            <p id="uploaded-file-size">File Size</p>
+                                            <p id="uploaded-file-type">File Type</p>
+                                        </div>
+                                        <button class="remove-file-btn" onclick="removeUploadedFile()">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div class="file-actions">
+                                        <button class="play-upload-btn" onclick="playUploadedFile()">
+                                            <i class="fas fa-play"></i>
+                                            Play
+                                        </button>
+                                        <button class="analyze-upload-btn" onclick="analyzeUploadedFile()">
+                                            <i class="fas fa-search"></i>
+                                            Analyze
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recording Status -->
+                        <div class="recording-status" id="recording-status" style="display: none;">
+                            <div class="status-indicator">
+                                <div class="pulse-dot"></div>
+                                <span>Recording...</span>
+                            </div>
+                            <div class="recording-timer" id="recording-timer">00:00</div>
+                        </div>
+
+                        <!-- Audio Visualizer -->
+                        <div class="audio-visualizer" id="audio-visualizer" style="display: none;">
+                            <canvas id="waveform-canvas" width="400" height="100"></canvas>
+                        </div>
+
+                        <!-- Recording Info -->
+                        <div class="recording-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Max Duration: 5 minutes</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-language"></i>
+                                <span>Languages: English, Hindi</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Privacy: Local processing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Transcription Display -->
+                    <div class="transcription-section" id="transcription-section" style="display: none;">
+                        <h3>Transcription</h3>
+                        <div class="transcription-text" id="transcription-text">
+                            <!-- Transcribed text will appear here -->
+                        </div>
+                        <div class="transcription-actions">
+                            <button class="btn-secondary" onclick="editTranscription()">
+                                <i class="fas fa-edit"></i>
+                                Edit Text
+                            </button>
+                            <button class="btn-primary" onclick="analyzeTranscription()">
+                                <i class="fas fa-search"></i>
+                                Analyze Text
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analysis Results Section -->
+            <section class="results-section" id="results" style="display: none;">
+                <div class="section-header">
+                    <h2>Voice Analysis Results</h2>
+                    <p>Comprehensive analysis of your voice content</p>
+                </div>
+
+                <div class="results-container">
+                    <!-- Overall Score -->
+                    <div class="overall-score">
+                        <div class="score-circle">
+                            <div class="score-value" id="overall-score">85</div>
+                        </div>
+                        <div class="score-details">
+                            <h3 id="score-title">High Credibility</h3>
+                            <p id="score-description">This voice content shows strong indicators of reliability and authenticity.</p>
+                        </div>
+                    </div>
+
+                    <!-- Voice Analysis Details -->
+                    <div class="analysis-details">
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-microphone"></i>
+                                <h4>Speech Quality</h4>
+                            </div>
+                            <div class="detail-content">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <p>Clear speech with good pronunciation and minimal background noise.</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-heart"></i>
+                                <h4>Emotional Analysis</h4>
+                            </div>
+                            <div class="detail-content">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <p>Neutral emotional tone with minimal signs of manipulation or stress.</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-quote-left"></i>
+                                <h4>Content Credibility</h4>
+                            </div>
+                            <div class="detail-content">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 80%"></div>
+                                </div>
+                                <p>Content appears factual with minimal bias or misleading information.</p>
+                            </div>
+                        </div>
+
+                        <div class="detail-card">
+                            <div class="detail-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Manipulation Detection</h4>
+                            </div>
+                            <div class="detail-content">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <p>Low risk of emotional manipulation or persuasive techniques detected.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voice Insights -->
+                    <div class="voice-insights" id="voice-insights">
+                        <!-- Detailed voice analysis will be added here -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="results-actions">
+                        <button class="btn-secondary" onclick="saveVoiceNote()">
+                            <i class="fas fa-save"></i>
+                            Save Voice Note
+                        </button>
+                        <button class="btn-secondary" onclick="shareResults()">
+                            <i class="fas fa-share"></i>
+                            Share Results
+                        </button>
+                        <button class="btn-primary" onclick="recordNew()">
+                            <i class="fas fa-plus"></i>
+                            Record New
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Voice History Section -->
+            <section class="history-section" id="history">
+                <div class="section-header">
+                    <h2>Voice Note History</h2>
+                    <p>Manage and review your previous voice analyses</p>
+                </div>
+
+                <div class="history-filters">
+                    <div class="filter-group">
+                        <label for="date-filter">Date Range:</label>
+                        <select id="date-filter">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="credibility-filter">Credibility:</label>
+                        <select id="credibility-filter">
+                            <option value="all">All Levels</option>
+                            <option value="high">High (80-100)</option>
+                            <option value="medium">Medium (50-79)</option>
+                            <option value="low">Low (0-49)</option>
+                        </select>
+                    </div>
+                    <button class="btn-secondary" onclick="applyFilters()">
+                        <i class="fas fa-filter"></i>
+                        Apply Filters
+                    </button>
+                </div>
+
+                <div class="voice-history" id="voice-history">
+                    <!-- Voice notes will be displayed here -->
+                    <div class="empty-state">
+                        <i class="fas fa-microphone-slash"></i>
+                        <h3>No Voice Notes Yet</h3>
+                        <p>Start recording to see your voice analysis history here.</p>
+                        <button class="btn-primary" onclick="scrollToRecorder()">
+                            <i class="fas fa-microphone"></i>
+                            Start Recording
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Voice Analysis Modal -->
+    <div id="voice-modal" class="voice-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Voice Analysis Details</h3>
+                <button class="close-btn" onclick="closeVoiceModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="voice-analysis-content">
+                    <!-- Detailed analysis will be shown here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeVoiceModal()">Close</button>
+                <button class="btn-primary" onclick="exportAnalysis()">Export Analysis</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required Scripts -->
+    <script src="config.js"></script>
+    <script src="gemini-api.js"></script>
+    <script src="voice-analyzer.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
