@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Note Analyzer Demo - FactChecker AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .demo-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .demo-header h1 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .demo-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .feature-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            color: #666;
+            margin: 0;
+        }
+        .demo-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        .demo-steps {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .demo-steps h3 {
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        .demo-steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .demo-steps li {
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1>🎤 Voice Note Analyzer Demo</h1>
+            <p>Experience the power of AI-driven voice content analysis</p>
+        </div>
+
+        <div class="demo-steps">
+            <h3>🚀 How to Test the Voice Note Analyzer</h3>
+            <ol>
+                <li><strong>Open the Voice Analyzer:</strong> Click the "Launch Voice Analyzer" button below</li>
+                <li><strong>Grant Permissions:</strong> Allow microphone access when prompted</li>
+                <li><strong>Start Recording:</strong> Click "Start Recording" and speak for 10-30 seconds</li>
+                <li><strong>Stop Recording:</strong> Click "Stop Recording" when finished</li>
+                <li><strong>Review Transcription:</strong> Check the automatically generated text</li>
+                <li><strong>Analyze Content:</strong> Click "Analyze Voice" for AI-powered analysis</li>
+                <li><strong>View Results:</strong> Review the comprehensive credibility analysis</li>
+            </ol>
+        </div>
+
+        <div class="feature-list">
+            <div class="feature-item">
+                <h3>🎙️ Voice Recording</h3>
+                <p>High-quality audio recording with real-time waveform visualization and smart controls</p>
+            </div>
+            <div class="feature-item">
+                <h3>🗣️ Speech-to-Text</h3>
+                <p>Automatic transcription using Web Speech API with support for English and Hindi</p>
+            </div>
+            <div class="feature-item">
+                <h3>🤖 AI Analysis</h3>
+                <p>Comprehensive analysis of credibility, emotional tone, and manipulation detection</p>
+            </div>
+            <div class="feature-item">
+                <h3>📊 Detailed Results</h3>
+                <p>Visual insights with scores, recommendations, and actionable feedback</p>
+            </div>
+            <div class="feature-item">
+                <h3>📚 Voice History</h3>
+                <p>Manage and review all your previous voice analyses with smart filtering</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔒 Privacy First</h3>
+                <p>Local processing with optional cloud analysis - your data stays secure</p>
+            </div>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Demo Requirements:</strong>
+            <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+                <li>Modern browser with Web Audio API support (Chrome, Firefox, Safari, Edge)</li>
+                <li>Microphone access permissions</li>
+                <li>Stable internet connection for AI analysis</li>
+                <li>HTTPS connection (required for microphone access)</li>
+            </ul>
+        </div>
+
+        <div class="demo-buttons">
+            <a href="voice-analyzer.html" class="btn">🎤 Launch Voice Analyzer</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Back to Home</a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+            <h3 style="color: #333; margin-bottom: 15px;">💡 Demo Tips</h3>
+            <ul style="color: #666; margin: 0; padding-left: 20px;">
+                <li><strong>Speak Clearly:</strong> Enunciate words clearly for better transcription accuracy</li>
+                <li><strong>Minimize Background Noise:</strong> Record in a quiet environment for best results</li>
+                <li><strong>Test Different Content:</strong> Try recording news, opinions, or educational content</li>
+                <li><strong>Check Analysis:</strong> Review how the AI analyzes different types of speech patterns</li>
+                <li><strong>Explore History:</strong> Use the history feature to compare different recordings</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 20px; text-align: center; color: #666; font-size: 0.9rem;">
+            <p>Built with ❤️ using Web Audio API, Web Speech API, and Gemini AI</p>
+        </div>
+    </div>
+</body>
+</html>
