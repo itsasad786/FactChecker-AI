@@ -1,0 +1,28 @@
+{
+  "name": "factchecker-ai",
+  "version": "1.0.0",
+  "description": "A comprehensive web platform for fact-checking and digital media literacy",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo \"Static site - no build needed\"",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "fact-checking",
+    "misinformation",
+    "ai",
+    "veritas",
+    "credibility"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.4",
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "openai": "^6.18.0"
+  }
+}
